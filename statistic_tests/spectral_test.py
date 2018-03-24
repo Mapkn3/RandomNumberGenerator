@@ -1,6 +1,7 @@
 from scipy import sqrt, log
 from scipy.fftpack import fft
 from scipy.special import erfc
+
 from utils.converters import bit_string_to_bit_list, normalized_sequence
 
 
@@ -14,7 +15,7 @@ def spectral(values):
     n1 = len(list(filter(lambda x: 0 < x < t, s_div_2)))
     d = (n1 - n0) / sqrt((n * 0.95 * 0.05) / 4)
     p_value = erfc(abs(d) / sqrt(2))
-    
+
     print(f'signal = {signal}')
     print(f'n = {n}')
     print(f's = {s}')
