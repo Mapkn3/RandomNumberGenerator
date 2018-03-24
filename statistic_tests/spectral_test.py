@@ -1,4 +1,4 @@
-from math import sqrt, log
+from scipy import sqrt, log
 from scipy.fftpack import fft
 from scipy.special import erfc
 from utils.converters import bit_string_to_bit_list, normalized_sequence

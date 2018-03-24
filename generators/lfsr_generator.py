@@ -10,11 +10,11 @@ def lfsr(polynomial):
         memory = memory[1:] + [reduce(lambda a, x: a ^ x, compress(memory, polynomial))]
 
 
-def voting_for_next_bit(values):
+def majority_vote(values):
     return Counter(values).most_common(1)[0][0]
 
 
-def choose_next_active(activation_flag, values):
+def choose_next_active_generators(activation_flag, values):
     return [index for index, value in enumerate(values) if value == activation_flag]
 
 
@@ -22,7 +22,7 @@ def combine_lfsr(*polynomials):
     generators = [lfsr(polynomial) for polynomial in polynomials]
     values = [next(generator) for generator in generators]
     while True:
-        bit = voting_for_next_bit(values)
+        bit = majority_vote(values)
         yield bit
-        for index in choose_next_active(bit, values):
+        for index in choose_next_active_generators(bit, values):
             values[index] = next(generators[index])
