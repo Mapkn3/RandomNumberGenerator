@@ -1,5 +1,5 @@
 from functools import reduce
-from itertools import compress
+from itertools import compress, islice
 from collections import Counter
 
 
@@ -26,3 +26,8 @@ def combine_lfsr(*polynomials):
         yield bit
         for index in choose_next_active_generators(bit, values):
             values[index] = next(generators[index])
+
+
+def save_n_bits_to_file(generator, n, path_to_file):
+    with open(path_to_file, 'w') as f:
+        f.write(''.join(str(i) for i in islice(generator, n)))
