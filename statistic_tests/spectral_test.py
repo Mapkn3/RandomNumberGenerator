@@ -6,7 +6,8 @@ from utils.converters import bit_string_to_bit_list, normalized_sequence
 
 
 def spectral(values):
-    signal = normalized_sequence(values)
+    bit_list = bit_string_to_bit_list(values)
+    signal = normalized_sequence(bit_list)
     n = len(signal)
     s = abs(fft(signal))
     s_div_2 = s[:n // 2]
@@ -30,4 +31,4 @@ def spectral(values):
 
 def test_values_from_file(path_to_file):
     with open(path_to_file, 'r') as f:
-        return spectral(bit_string_to_bit_list(f.read()))
+        return spectral(f.read())

@@ -25,10 +25,10 @@ def fi(values):
 
 
 def apen(m, values):
-    print(f'For m = {m}')
     c_m = hist_pattern_in_string(get_all_bin_combination(m), values)
-    print(f'C_m = {c_m}')
     c_m_plus_1 = hist_pattern_in_string(get_all_bin_combination(m + 1), values)
+    print(f'For m = {m}')
+    print(f'C_m = {c_m}')
     print(f'C_m+1 = {c_m_plus_1}')
     return fi(c_m) - fi(c_m_plus_1)
 
