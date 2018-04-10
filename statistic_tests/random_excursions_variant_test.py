@@ -7,6 +7,7 @@ from scipy.special import erfc
 from utils.converters import bit_string_to_bit_list, normalized_sequence
 
 
+# Тест произвольных отклонений (вар. 2) по англ книжке
 def random_excursions_variant(values):
     bit_list = bit_string_to_bit_list(values)
     signal = normalized_sequence(bit_list)
@@ -28,6 +29,7 @@ def random_excursions_variant(values):
     return result
 
 
+# Тест битов из файла
 def test_values_from_file(path_to_file):
     with open(path_to_file, 'r') as f:
         return random_excursions_variant(f.read())

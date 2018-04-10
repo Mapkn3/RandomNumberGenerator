@@ -5,6 +5,7 @@ from scipy.special import erfc
 from utils.converters import bit_string_to_bit_list, normalized_sequence
 
 
+# Спектральный тест по англ книжке
 def spectral(values):
     bit_list = bit_string_to_bit_list(values)
     signal = normalized_sequence(bit_list)
@@ -29,6 +30,7 @@ def spectral(values):
     return p_value > 0.01
 
 
+# Тест битов из файла
 def test_values_from_file(path_to_file):
     with open(path_to_file, 'r') as f:
         return spectral(f.read())
