@@ -1,5 +1,5 @@
 from generators.lfsr_generator import combine_lfsr, save_n_bits_to_file
-from statistic_tests import spectral_test, approximate_entropy_test, random_excursions_variant_test
+from statistic_tests import *
 
 random_number_generator = combine_lfsr([1, 0, 0, 1, 0], [1, 1, 1, 1, 1], [1, 0, 0, 1, 1])
 
